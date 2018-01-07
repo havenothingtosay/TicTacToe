@@ -1,0 +1,9 @@
+<!--<div class="status">{{status}}<span *ngIf="state.xIsNext;else elseBlock">X</span><ng-template #elseBlock>O</ng-template></div>-->
+<!--<div class="status">-->
+  <!--<span *ngIf="winner;else elseBlock">Winner: {{winner}}</span>-->
+  <!--<ng-template #elseBlock>Next player: {{ state.xIsNext ? 'X' : 'O' }}</ng-template>-->
+<!--</div>-->
+
+<div class="board-row" *ngFor="let row of defaultsquares">
+  <app-square *ngFor="let square of row" [defaultvalue]="square" [newvalue]="squares[square]" (clickEvent)="handleClick($event)"></app-square>
+</div>
