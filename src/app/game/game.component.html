@@ -1,0 +1,14 @@
+<div class="game">
+  <div class="game-board">
+    <app-board [squares]="state.history[state.stepNumber].squares" (clickEvent)="handleClick($event)"></app-board>
+  </div>
+  <div class="game-info">
+    <div class="status">
+      <span *ngIf="winner;else elseBlock">Winner: {{winner}}</span>
+      <ng-template #elseBlock>Next player: {{ state.xIsNext ? 'X' : 'O' }}</ng-template>
+    </div>
+    <li *ngFor="let step of state.history;index as move">
+      <a href="#" (click)="jumpTo(move)">{{ move?'Move #'+move:'Game start' }}</a>
+    </li>
+  </div>
+</div>
