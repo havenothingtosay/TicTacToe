@@ -23,6 +23,22 @@ export class GameComponent implements OnInit {
     console.log(this.state.history)
   }
 
+  ifWinner(){
+      if(this.winner){
+          this.status= `Winner: ${this.winner}`;
+      }
+      else{
+          this.status=`Next player: `;
+          if(this.state.xIsNext){
+              this.status+='X';
+          }
+          else{
+              this.status+='O';
+          }
+      }
+      return this.status;
+  }
+
   handleClick(i:number){
     console.log(`点击收到index：${i}`);
     const history = this.state.history.slice(0,this.state.stepNumber+1);
